@@ -30,7 +30,7 @@ const MovieList = ({
 
   return (
     <Page helmet="Latest & Popular Movie" siderRight={false} siderLeft={false}>
-      <section style={{
+      {movieDetail.title && <section style={{
         minHeight: '510px',
         height: 'calc(100vh / 2.5)',
         backgroundPosition: 'top center',
@@ -58,7 +58,7 @@ const MovieList = ({
             </div>
           </Col>
         </Row>
-      </section>
+      </section>}
     </Page>
   );
 };
