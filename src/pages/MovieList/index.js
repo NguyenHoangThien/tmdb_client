@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Page from 'components/Page/Page';
-import { Card, Row, Col, Divider } from 'antd';
+import { Card, Row, Col } from 'antd';
 import { getLists } from './actions';
 
-const { Meta } = Card;
 const imagePrefix = 'https://www.themoviedb.org/t/p/w220_and_h330_face/';
 const mapDispatchToProps = {
   getListsAction: getLists
@@ -21,9 +20,8 @@ const MovieList = ({
       const listMovies = await getListsAction();
       setListMovie(listMovies);
     }
-
     fetchListMovie();
-  }, []);
+  });
 
   return (
     <Page helmet="Latest & Popular Movie">
@@ -64,7 +62,7 @@ const MovieList = ({
                   hoverable
                   cover={<img alt="example" src={`${imagePrefix}/${poster_path}`} style={{ borderRadius: 10 }} />}
                 >
-                  <h4><a href="#"> {title} </a></h4>
+                  <h4><a href> {title} </a></h4>
                   <span class="ant-card-meta-description">{release_date} </span>
                 </Card>
               </Link>

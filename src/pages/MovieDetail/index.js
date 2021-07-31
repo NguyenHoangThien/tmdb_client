@@ -25,7 +25,7 @@ const MovieList = ({
     }
 
     fetchListMovie();
-  }, []);
+  });
   const { poster_path, release_date, title, backdrop_path, genres = [], overview, tagline } = movieDetail;
   const movieTypes = genres.map(item => item.name).join(', ');
 
