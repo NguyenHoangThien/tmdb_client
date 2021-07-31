@@ -14,14 +14,15 @@ const MovieList = ({
   getListsAction
 }) => {
   const [listMovie, setListMovie] = useState([]);
+  const fetchListMovie = async () => {
+    const listMovies = await getListsAction();
+    setListMovie(listMovies);
+  }
 
   useEffect(() => {
-    const fetchListMovie = async () => {
-      const listMovies = await getListsAction();
-      setListMovie(listMovies);
-    }
     fetchListMovie();
-  });
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Page helmet="Latest & Popular Movie">

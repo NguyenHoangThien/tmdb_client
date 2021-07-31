@@ -16,20 +16,17 @@ const MovieList = ({
 }) => {
   const { id } = match.params;
   const [movieDetail, setListMovieDetail] = useState({});
+  const fetchListMovie = async () => {
+    const movie = await getDetailAction(id);
+    setListMovieDetail(movie);
+  }
 
   useEffect(() => {
-    const fetchListMovie = async () => {
-      const movie = await getDetailAction(id);
-      console.log(movie);
-      setListMovieDetail(movie);
-    }
-
     fetchListMovie();
-  });
-  const { poster_path, release_date, title, backdrop_path, genres = [], overview, tagline } = movieDetail;
+    // eslint-disable-next-line
+  }, []);
+  const { poster_path, release_date, title, backdrop_path, genres = [], overview, tagline, vote_average } = movieDetail;
   const movieTypes = genres.map(item => item.name).join(', ');
-
-  console.log(movieDetail);
 
   return (
     <Page helmet="Latest & Popular Movie" siderRight={false} siderLeft={false}>
@@ -54,7 +51,7 @@ const MovieList = ({
             <div style={{padding: '30px', color: 'white' }}>
               <h2 style={{fontSize: '2.2rem', fontWeight: '600', margin: 0, color: 'white' }}> {title} ({new Date(release_date).getFullYear()})</h2>
               <p> {movieTypes}</p>
-              <Progress type="circle" percent={75} width={50} strokeColor="green" style={{color: 'white'}}/> User Scores
+              <Progress type="circle" percent={vote_average*10} width={50} strokeColor="green" style={{color: 'white'}}/> User Scores
               <h3 style={{ marginTop: 10, color: 'white', fontSize: '1.1rem', fontWeight: 400, opacity: 0.7, fontStyle: 'italic' }}> {tagline}</h3>
               <h3 style={{ marginTop: 10, color: 'white', fontSize: '1.3rem' }}> Overview </h3>
               <p style={{fontWeight: 200}}> {overview} </p>
