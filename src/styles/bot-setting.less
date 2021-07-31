@@ -1,0 +1,84 @@
+.v2 {
+  .bot-setting-page {
+    width: 100%;
+
+    .ant-card.card-setting {
+      width: 100%;
+      .ant-ribbon-wrapper {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        text-transform: capitalize;
+      }
+
+      .ant-col {
+        .media-breakpoint-down(md; {width: 100%;});
+      }
+
+      .setting-section {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 20px 0 20px 20px;
+        position: relative;
+        width: 100%;
+        .media-breakpoint-down(md; {padding-right: 20px;});
+
+        &.last {
+          padding-right: 20px;
+        }
+
+        &.border-left {
+          border-left: #efefef 1px solid;
+          .media-breakpoint-down(md; {border-left: none; border-top: #efefef 1px solid;});
+        }
+
+        .ant-divider {
+          .media-breakpoint-down(md; {opacity: 0;});
+        }
+
+        .box-title {
+          padding: 0 0 20px 0;
+        }
+        .deploy-app-image {
+          padding: 30px 0;
+          text-align: center;
+          img {
+            height: 200px;
+            width: auto !important;
+          }
+        }
+        .setting-table {
+          flex: 1;
+          text-align: center;
+          table {
+            width: 100%;
+            tbody {
+              width: 100%;
+              tr {
+                width: 100%;
+                td {
+                  padding: 10px 0;
+                  text-align: right;
+                  &:first-child {
+                    text-align: left;
+                    color: #ccc;
+                    padding-right: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .setting-update {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .setting-report {
+    padding: 20px;
+  }
+}

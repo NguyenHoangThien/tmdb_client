@@ -1,0 +1,93 @@
+.v2 {
+  .setting-page {
+    width: 1200px;
+    max-width: 100%;
+    .ant-card.card-setting {
+      width: 100%;
+
+      .setting-section {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 20px;
+        .box-title {
+          padding: 0;
+          margin-bottom: 20px;
+        }
+        &.border-left {
+          border-left: #efefef 1px solid;
+          .media-breakpoint-down(md; {border-top: #efefef 1px solid;border-left: none;});
+        }
+        .setting-table {
+          width: 100%;
+          table {
+            width: 100%;
+
+            tbody {
+              width: 100%;
+            }
+            tr {
+              width: 100%;
+              td {
+                padding: 10px 0;
+                text-align: left;
+                width: 50%;
+
+                &:first-child {
+                  color: #ccc;
+                }
+                &:last-child {
+                  text-align: right;
+                  padding-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .setting-brand {
+        h4 {
+          margin: 0;
+          padding: 0;
+        }
+        .ant-btn {
+          margin-bottom: 10px 0 20px 0;
+        }
+        small {
+          display: inline-block;
+          color: #ccc;
+        }
+        .custom-domain {
+          .ant-btn {
+            margin-top: 10px;
+          }
+        }
+        .setting-logo-horizontal {
+          text-align: center;
+          img {
+            max-height: 40px;
+            margin: 10px 0 20px 0;
+            max-width: 100%;
+            height: auto;
+          }
+        }
+        .setting-logo-vertical {
+          text-align: center;
+
+          img {
+            max-height: 120px;
+            margin: 10px 0 20px 0;
+            max-width: 100%;
+          }
+        }
+        .setting-background {
+          img {
+            max-width: 100%;
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
+}

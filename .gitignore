@@ -1,0 +1,12 @@
+.DS_Store
+yarn.json
+build
+node_modules
+.vscode/
+.DS_Store
+yarn.lock
+.idea
+coverage
+.env.local
+package-lock.json
+.scannerwork

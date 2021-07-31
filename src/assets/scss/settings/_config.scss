@@ -1,0 +1,61 @@
+@import '../tools/functions';
+// FONTS
+$base-font: 'Roboto', sans-serif;
+$title-font: 'Raleway', sans-serif;
+
+// COLORS
+// Primary color
+$blue: #00b2e3;
+$black: #101820;
+$grey: #98989a;
+$white: #fff;
+
+// Secondary color
+$deep-blue: #0b233a;
+$teal: #19647e;
+$sky-blue: #0785cb;
+$smoky-white: #f4f4f4;
+// Others
+$green: #7ed321;
+$yellow: #f5a623;
+$red: red;
+// Variable color
+$brand-color: $blue;
+$link-color: $sky-blue;
+$text-color: $black;
+
+$overlay-background: rgba($black, 0.5);
+$box-shadow: 0 0 20px rgba($black, 0.2);
+$button-shadow: 0 3px 5px rgba($black, 0.1);
+
+// LENGTH & SPACING
+$spacing: 10px;
+$spacing-2x: $spacing * 2;
+$spacing-3x: $spacing * 3;
+$spacing-4x: $spacing * 4;
+$gutter: $spacing;
+$menu-height: 60px;
+// RADIUS
+$base-radius: 10px;
+// BREAKPOINTS
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
+@include _assert-starts-at-zero($grid-breakpoints);
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+
+@include _assert-ascending($container-max-widths, '$container-max-widths');
+// GRID
+$grid-columns: 12;
+$grid-gutter-width: $spacing-2x;
+$enable-grid-classes: true;

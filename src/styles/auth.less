@@ -1,0 +1,107 @@
+.v2 {
+  .ant-card {
+    &.card-auth {
+      width: 420px;
+      .media-breakpoint-up(md; {margin-top: 60px;});
+      .media-breakpoint-down(sm; {width: 100%;});
+      .logo {
+        margin: @box-padding*2 0 @box-padding 0;
+      }
+
+      .google-log-in,
+      .sso-log-in {
+        margin-top: 20px;
+        padding: 0 30px;
+        .media-breakpoint-down(sm; {padding: 0 15px;});
+        .icon {
+          position: absolute;
+          top: 11px;
+          left: 10px;
+        }
+        .ant-btn {
+          .media-breakpoint-down(sm; {font-size: 15px;});
+        }
+      }
+
+      .google-log-in + footer,
+      .sso-log-in + footer {
+        margin-top: 20px;
+      }
+
+      .sso-log-in {
+        .sso-text {
+          position: relative;
+          display: inline-block;
+          padding: 0 20px;
+        }
+        .anticon {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          margin-top: -8px;
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+          .media-breakpoint-down(sm; {display: none;});
+        }
+      }
+
+      .ant-divider {
+        padding: 0;
+        margin: @box-padding 0;
+      }
+
+      .ant-alert {
+        margin: @box-padding 30px;
+        .media-breakpoint-down(sm; {margin: 0 15px 20px 15px;}) !important;
+      }
+      .sso-title,
+      .sso-guide {
+        margin: 5px 30px;
+        padding: 0;
+        text-align: center;
+        .media-breakpoint-down(sm; {margin: 0 5px 20px 5px;}) !important;
+      }
+
+      .sso-title + .sso-guide {
+        margin-top: 0 !important;
+        font-size: 0.8em;
+      }
+
+      .ant-form {
+        padding: 0 30px;
+        .media-breakpoint-down(sm; {padding: 0 15px;});
+      }
+
+      .ant-btn {
+        .media-breakpoint-down(sm; {padding: 0 15px; font-size: 13px;}) !important;
+      }
+
+      .ant-btn.ant-btn-primary {
+        .media-breakpoint-down(sm; {padding: 0 15px; font-size: 15px;}) !important;
+      }
+
+      .ant-page-header {
+        margin: 0 10px;
+        padding: 0;
+        .ant-page-header-heading-title {
+          font-size: 12px;
+          text-transform: uppercase;
+          color: #999;
+        }
+      }
+    }
+
+    &.auto-width {
+      width: 364px;
+    }
+
+    footer {
+      p {
+        padding: 5px 10px;
+      }
+    }
+  }
+}

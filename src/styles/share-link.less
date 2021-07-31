@@ -1,0 +1,134 @@
+.v2 {
+  .share-link-page {
+    width: 100%;
+    .ant-col {
+      .media-breakpoint-down(md; {width: 100%;});
+
+      .card-box {
+        box-sizing: border-box;
+        height: @full-height;
+        max-height: @full-height;
+        overflow-y: scroll;
+
+        .box-title {
+          .media-breakpoint-down(md; {flex-direction: column; justify-content: center}) !important;
+          .box-title-action {
+            .media-breakpoint-down(md; {flex-direction: column;}) !important;
+
+            .ant-input-search {
+              width: 280px;
+              .media-breakpoint-down(md; {width: 100%; margin: 10px 0;}) !important;
+
+              .ant-input {
+                height: 32px;
+                margin-left: 0 !important;
+              }
+            }
+            .ant-btn {
+              .media-breakpoint-down(md; {margin-left: 0;}) !important;
+            }
+          }
+        }
+        .ant-card-body {
+          .media-breakpoint-down(md; {padding: 5px;}) !important;
+        }
+      }
+
+      .card-robots-list {
+        .media-breakpoint-down(
+          xs; {height: auto; margin-bottom: 20px; border-radius: 5px;}
+        ) !important;
+
+        .ant-radio-button-wrapper {
+          height: auto;
+          padding-top: 5px;
+          width: 100%;
+          span {
+            text-align: center;
+            width: 100%;
+            line-height: 1.2;
+            display: inline-block;
+            padding: 0;
+          }
+        }
+        .ant-radio-group {
+          display: flex;
+          padding: 10px;
+          .media-breakpoint-down(md; {padding: 0;margin-bottom: 5px;});
+          .ant-radio-button {
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+        .ant-select-wrapper {
+          padding: 10px;
+          .media-breakpoint-down(md; {padding: 0 0 5px 0;});
+
+          .ant-select {
+            width: 100%;
+          }
+        }
+
+        .ant-checkbox-group {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          .ant-checkbox-wrapper {
+            display: flex;
+            width: 100%;
+            padding: 20px 10px;
+            margin: 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+          }
+        }
+
+        .robot-name {
+          flex: 1;
+          display: inline-block;
+        }
+        .color-indicator {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border-radius: 10px;
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          margin-top: -5px;
+          border: 1px solid #eee;
+        }
+      }
+    }
+
+    .card-calendar {
+      padding: 10px;
+      .media-breakpoint-down(md; {height: auto;}) !important;
+    }
+    // React Big Calendar
+    .rbc-toolbar {
+      .media-breakpoint-down(md; {display: flex; flex-direction: column;});
+      .rbc-toolbar-label {
+        .media-breakpoint-down(md; {margin: 10px 0});
+      }
+    }
+    .rbc-btn-group {
+      .rbc-active {
+        color: @color-primary;
+        border: 1px solid @color-primary;
+        background: #fff;
+        box-shadow: none;
+      }
+    }
+
+    .calendar-wrapper {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      bottom: 10px;
+      left: 10px;
+    }
+  }
+}

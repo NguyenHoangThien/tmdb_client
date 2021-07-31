@@ -1,0 +1,89 @@
+// Breakpoint viewport sizes and media queries.
+//
+// Breakpoints are defined as a list of `name minimum-width`, ordered from small to large:
+//
+//    xs 0, sm 544px, md 768px
+//
+// The list defined in the `@grid-breakpoints` global variable is used as the `@breakpoints` argument by default.
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+.media-breakpoint-up(@name; @breakpoints; @content) {
+  .-(@i:length(@breakpoints)) when (@i > 0) {
+    .-((@i - 1));
+
+    @breakpoint: extract(@breakpoints, @i);
+    @breakpoint-name: extract(@breakpoint, 1);
+
+    & when (@name = @breakpoint-name) {
+      // if it's the specified size
+      @breakpoint-value: abs(extract(@breakpoint, 2));
+
+      & when (@breakpoint-value = 0) {
+        @content();
+      }
+      & when (@breakpoint-value > 0) {
+        @media (min-width: @breakpoint-value) {
+          @content();
+        }
+      }
+    }
+  }
+  .-();
+}
+.media-breakpoint-up(@name; @content) {
+  .media-breakpoint-up(@name; @grid-breakpoints; @content);
+} // default breakpoints alias
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+.media-breakpoint-down(@name; @breakpoints; @content) {
+  .-(@i:length(@breakpoints)) when (@i > 0) {
+    .-((@i - 1));
+
+    @breakpoint: extract(@breakpoints, @i);
+    @breakpoint-name: extract(@breakpoint, 1);
+
+    & when (@name = @breakpoint-name) {
+      // if it's the specified size
+      & when (@i = length(@breakpoints)) {
+        @content();
+      }
+      & when (@i < length(@breakpoints)) {
+        @next-breakpoint: extract(@breakpoints, (@i + 1));
+        @next-breakpoint-value: abs(extract(@next-breakpoint, 2));
+
+        @media (max-width: (@next-breakpoint-value - 1)) {
+          @content();
+        }
+      }
+    }
+  }
+  .-();
+}
+.media-breakpoint-down(@name; @content) {
+  .media-breakpoint-down(@name; @grid-breakpoints; @content);
+} // default breakpoints alias
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+.media-breakpoint-only(@name; @breakpoints; @content) {
+  .media-breakpoint-up(
+    @name; @breakpoints; {.media-breakpoint-down(@name; @breakpoints; {@content () ;}) ;}
+  );
+}
+.media-breakpoint-only(@name; @content) {
+  .media-breakpoint-only(@name; @grid-breakpoints; @content);
+} // default breakpoints alias
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+.media-breakpoint-between(@lower; @upper; @breakpoints; @content) {
+  .media-breakpoint-up(
+    @lower; @breakpoints; {.media-breakpoint-down(@upper; @breakpoints; {@content () ;}) ;}
+  );
+}
+.media-breakpoint-between(@lower; @upper; @content) {
+  .media-breakpoint-between(@lower; @upper; @grid-breakpoints; @content);
+} // default breakpoints alias

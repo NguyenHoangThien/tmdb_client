@@ -1,0 +1,162 @@
+// @import 'assets/scss/components/_button';
+// @import 'assets/scss/components/_modal';
+// @import 'assets/scss/components/_redux_form';
+
+// body {
+//   background: #00b2e3 !important;
+//   width: 100% !important;
+// }
+// .wrapper {
+//   width: 100%;
+// }
+
+// a {
+//   text-decoration: none;
+// }
+
+// span.ant-calendar-range-picker-separator {
+//   line-height: 2;
+// }
+
+// .ant-calendar-picker:focus {
+//   .ant-calendar-picker-input {
+//     border-color: #02b4e3 !important;
+//     box-shadow: none !important;
+//   }
+// }
+
+// .custom-ant-modal-confirm {
+//   .ant-modal-body {
+//     padding: 0px !important;
+//     .ant-modal-confirm-title {
+//       padding: 16px 24px;
+//       font-size: 1.25rem;
+//       font-family: Roboto;
+//       font-weight: 500;
+//       line-height: 1.6;
+//     }
+//     .ant-modal-confirm-content {
+//       padding: 8px 24px;
+//       margin-top: 0px;
+//       margin-bottom: 12px;
+//       font-size: 1rem;
+//       font-family: Roboto;
+//       font-weight: 400;
+//       line-height: 1.5;
+//       color: rgba(0, 0, 0, 0.54);
+//     }
+//     .ant-modal-confirm-btns {
+//       padding: 8px;
+//       margin-top: 0px;
+//       .ant-btn {
+//         padding: 6px 8px;
+//         color: #02b4e3;
+//         font-size: 0.875rem;
+//         min-width: 64px;
+//         box-sizing: border-box;
+//         font-family: Roboto;
+//         font-weight: bold;
+//         line-height: 1.75;
+//         height: 36px;
+//         border-radius: 4px;
+//         text-transform: uppercase;
+//         border: 0;
+//         cursor: pointer;
+//         display: inline-flex;
+//         outline: 0;
+//         position: relative;
+//         align-items: center;
+//         user-select: none;
+//         vertical-align: middle;
+//         text-decoration: none;
+//         background-color: transparent;
+//         span {
+//           width: 100%;
+//           display: inherit;
+//           align-items: inherit;
+//           justify-content: inherit;
+//         }
+//         &:hover {
+//           background-color: rgba(2, 180, 227, 0.08);
+//         }
+//         &.ant-btn-default {
+//           color: rgba(0, 0, 0, 0.87);
+//           &:hover {
+//             background-color: rgba(0, 0, 0, 0.08);
+//           }
+//         }
+//         &.ant-btn-loading {
+//           padding-left: 29px !important;
+//           background-color: rgba(0, 0, 0, 0.08);
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .ant-notification {
+//   z-index: 1310;
+// }
+
+// .custom-ant-notification-success {
+//   background: #4caf50;
+//   color: #fff;
+//   .ant-notification-notice-message {
+//     font-size: 18px;
+//     color: #fff;
+//   }
+// }
+
+// .custom-ant-notification-error {
+//   background: #ff5722;
+//   color: #fff;
+//   .ant-notification-notice-message {
+//     color: #fff;
+//   }
+// }
+
+// .loading-container {
+//   position: relative;
+// }
+
+// .schedule-filter-select {
+//   svg {
+//     right: 8px !important;
+//   }
+// }
+
+// .superscript-icon {
+//   font-size: 15px;
+//   vertical-align: top;
+//   line-height: 25px;
+// }
+
+// .side-menu {
+//   .MuiDrawer-paperAnchorDockedLeft {
+//     overflow-x: hidden;
+//     &::-webkit-scrollbar {
+//       width: 10px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background: rgba(#000, 0.05);
+//     }
+
+//     /* Handle */
+//     &::-webkit-scrollbar-thumb {
+//       background: darken(#00b2e3, 10%);
+//     }
+
+//     /* Handle on hover */
+//     &::-webkit-scrollbar-thumb:hover {
+//       background: darken(#00b2e3, 20%);
+//     }
+//     .main-nav {
+//       flex: 1;
+//     }
+//   }
+// }
+
+// div[class*='MUIDataTableHeadCell-data-'] {
+//   font-weight: 400;
+// }

@@ -1,0 +1,93 @@
+{
+  "name": "tb-enterprise-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/runtime": "7.0.0-rc.0",
+    "antd": "^4.16.1",
+    "axios": "^0.21.1",
+    "babel-plugin-import": "^1.12.1",
+    "color-convert": "^2.0.1",
+    "connected-react-router": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "history": "^4.9.0",
+    "moment": "^2.27.0",
+    "query-string": "^6.13.1",
+    "react": "16.13.1",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "16.13.1",
+    "react-flags-select": "^2.1.2",
+    "react-google-login": "^5.1.21",
+    "react-helmet": "5.2.1",
+    "react-redux": "6.0.1",
+    "react-redux-loading-bar": "^4.4.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.4",
+    "redux": "4.0.5",
+    "redux-thunk": "2.3.0",
+    "rxjs": "^6.6.3",
+    "rxjs-compat": "^6.6.3",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "customize-cra": "^0.2.14",
+    "dotenv": "^6.2.0",
+    "dotenv-cli": "^1.4.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.3",
+    "husky": "^2.7.0",
+    "jest": "^26.4.2",
+    "less": "^3.12.2",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "react-app-rewired": "^2.1.6",
+    "redux-devtools-extension": "^2.13.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.1"
+  },
+  "scripts": {
+    "local": "NODE_ENV=local react-app-rewired start"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx,scss}": [
+        "pretty-quick --staged",
+        "prettier --write",
+        "git add"
+      ],
+      "*.{js,jsx}": [
+        "eslint"
+      ]
+    }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "jest": {
+    "coverageReporters": [
+      "html"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  }
+}
