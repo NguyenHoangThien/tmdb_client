@@ -25,7 +25,7 @@ const defineStrokeColor = (value) => {
   return "red"
 }
 
-const displayMovies = (listMovie) => (
+const displayMovies = (listMovie, tabType) => (
   <Row gutter={[16, 16]}>
   {
     listMovie.map(({
@@ -44,7 +44,7 @@ const displayMovies = (listMovie) => (
       vote_average,
       vote_count,
     }) => (
-      <Col className="gutter-row" xxl={3} xl={4} lg={6} md={8} xs={12} key={id}>
+      <Col className="gutter-row" xxl={3} xl={4} lg={6} md={8} xs={12} key={tabType + id}>
         <Link to={`/movies/${id}`}>
           <Card
             bordered={false}
@@ -52,7 +52,7 @@ const displayMovies = (listMovie) => (
             cover={<img alt="example" src={`${imagePrefix}/${poster_path}`} style={{ borderRadius: 10 }} />}
             style={{position: 'relative'}}
           >
-            <h4><a href={`/movies/${id}`}> {title} </a></h4>
+            <h4 style={{color: '#02B4E3' }}>{title}</h4>
             <span className="ant-card-meta-description">{formatDate(release_date)}</span>
             <div style={{ position: 'absolute', top: 242, left: 5, background: 'white', borderRadius: 30 }}><Progress type="circle" percent={vote_average*10} width={35} strokeColor={defineStrokeColor(vote_average*10)} style={{ color: 'white' }}/></div>
           </Card>
@@ -86,7 +86,7 @@ const MovieList = ({
     if (tabType === tabTypes.Popular) {
       setListMoviePopular([...listMoviePopular, ...listMovie]);
     } else {
-      setListMovieLatest([...listMoviePopular, ...listMovie]);
+      setListMovieLatest([...listMovieLatest, ...listMovie]);
     }
     if (!poster) {
       setPoster(getRandomItem(listMovie));
@@ -130,10 +130,10 @@ const MovieList = ({
       }
       <Tabs defaultActiveKey={tabType} onChange={onChangeTab}>
         <TabPane tab={tabTypes.Popular} key={tabTypes.Popular}>
-          {displayMovies(listMoviePopular)}
+          {displayMovies(listMoviePopular, tabType)}
         </TabPane>
         <TabPane tab={tabTypes.Latest} key={tabTypes.Latest}>
-          {displayMovies(listMovieLatest)}
+          {displayMovies(listMovieLatest, tabType)}
         </TabPane>
       </Tabs>
       <div style={{ textAlign: 'center', paddingBottom: 50 }}> <Button type="primary" loading={loadMore} onClick={() => loadMoreMovie(tabType)}>Load More</Button> </div>
