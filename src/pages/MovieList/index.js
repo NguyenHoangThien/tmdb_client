@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 import Page from 'components/Page/Page';
 import { Card, Row, Col, Tabs, Button } from 'antd';
@@ -11,6 +12,11 @@ const imagePrefix = 'https://www.themoviedb.org/t/p/w220_and_h330_face/';
 const mapDispatchToProps = {
   getListsAction: getLists
 };
+
+const formatDate = (dateString) => {
+  const date = moment(dateString);
+  return date.format('MMMM Do YYYY');
+}
 
 const displayMovies = (listMovie) => (
   <Row gutter={[16, 16]}>
@@ -39,7 +45,7 @@ const displayMovies = (listMovie) => (
             cover={<img alt="example" src={`${imagePrefix}/${poster_path}`} style={{ borderRadius: 10 }} />}
           >
             <h4><a href={`/movies/${id}`}> {title} </a></h4>
-            <span className="ant-card-meta-description">{release_date} </span>
+            <span className="ant-card-meta-description">{formatDate(release_date)}</span>
           </Card>
         </Link>
       </Col>
@@ -62,6 +68,9 @@ const MovieList = ({
   const [listMovieLatest, setListMovieLatest] = useState([]);
   const [loadMore, setLoadMore] = useState(false);
   const [tabType, setTabType] = useState(tabTypes.Popular);
+  const [poster, setPoster] = useState(null);
+
+  const getRandomItem = (array) => array[Math.floor(Math.random() * array.length)];
 
   const fetchListMovie = async (tabType = tabTypes.Popular, page) => {
     const listMovie = await getListsAction({ type: tabType, page });
@@ -69,6 +78,9 @@ const MovieList = ({
       setListMoviePopular([...listMoviePopular, ...listMovie]);
     } else {
       setListMovieLatest([...listMoviePopular, ...listMovie]);
+    }
+    if (!poster) {
+      setPoster(getRandomItem(listMovie));
     }
   }
 
@@ -92,17 +104,21 @@ const MovieList = ({
 
   return (
     <Page helmet="Latest & Popular Movie">
-      <section style={{
-        minHeight: '300px',
-        height: 'calc(100vh / 2.5)',
-        backgroundPosition: 'top center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        color: '#fff',
-        marginBottom: 10,
-        backgroundImage: 'url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/hPea3Qy5Gd6z4kJLUruBbwAH8Rm.jpg")'
-      }}>
-      </section>
+      {poster &&
+        <Link to={`/movies/${poster.id}`}>
+          <section style={{
+            minHeight: '300px',
+            height: 'calc(100vh / 2.5)',
+            backgroundPosition: 'top center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            color: '#fff',
+            marginBottom: 10,
+            backgroundImage: `url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/${poster.poster_path || poster.backdrop_path}")`
+          }}>
+          </section>
+        </Link>
+      }
       <Tabs defaultActiveKey={tabType} onChange={onChangeTab}>
         <TabPane tab={tabTypes.Popular} key={tabTypes.Popular}>
           {displayMovies(listMoviePopular)}

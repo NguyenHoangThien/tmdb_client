@@ -28,7 +28,7 @@ const MovieList = ({
   const { poster_path, release_date, title, backdrop_path, genres, overview, tagline, vote_average } = movieDetail;
 
   return (
-    <Page helmet="Latest & Popular Movie" siderRight={false} siderLeft={false}>
+    <Page helmet={title} siderRight={false} siderLeft={false}>
       {movieDetail.title && <section style={{
         minHeight: '510px',
         height: 'calc(100vh / 2.5)',
@@ -37,7 +37,7 @@ const MovieList = ({
         backgroundRepeat: 'no-repeat',
         color: '#fff',
         marginBottom: 10,
-        backgroundImage: `url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/${poster_path || backdrop_path}")`
+        backgroundImage: `url("https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${poster_path || backdrop_path}")`
       }}>
         <Row gutter={[16, 16]} style={{ backgroundImage: 'linear-gradient(to right, rgba(12.94%, 15.29%, 24.31%, 1.00) 150px, rgba(12.94%, 15.29%, 24.31%, 0.84) 100%)' }}>
           <Col className="gutter-row" xxl={4} xl={4} lg={2} md={1} xs={0}> </Col>
