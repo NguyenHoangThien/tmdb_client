@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import Page from 'components/Page/Page';
-import { Card, Row, Col, Tabs, Button } from 'antd';
+import { Card, Row, Col, Tabs, Button, Progress } from 'antd';
 import { getLists } from './actions';
 
 const { TabPane } = Tabs;
@@ -14,8 +14,15 @@ const mapDispatchToProps = {
 };
 
 const formatDate = (dateString) => {
+  if (!dateString) return 'Not Available';
   const date = moment(dateString);
   return date.format('MMMM Do YYYY');
+}
+
+const defineStrokeColor = (value) => {
+  if (value > 70) return "green";
+  if (value > 40) return "orange"
+  return "red"
 }
 
 const displayMovies = (listMovie) => (
@@ -43,9 +50,11 @@ const displayMovies = (listMovie) => (
             bordered={false}
             hoverable
             cover={<img alt="example" src={`${imagePrefix}/${poster_path}`} style={{ borderRadius: 10 }} />}
+            style={{position: 'relative'}}
           >
             <h4><a href={`/movies/${id}`}> {title} </a></h4>
             <span className="ant-card-meta-description">{formatDate(release_date)}</span>
+            <div style={{ position: 'absolute', top: 242, left: 5, background: 'white', borderRadius: 30 }}><Progress type="circle" percent={vote_average*10} width={35} strokeColor={defineStrokeColor(vote_average*10)} style={{ color: 'white' }}/></div>
           </Card>
         </Link>
       </Col>
