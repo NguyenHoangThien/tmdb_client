@@ -63,8 +63,8 @@ const MovieList = ({
                   hoverable
                   cover={<img alt="example" src={`${imagePrefix}/${poster_path}`} style={{ borderRadius: 10 }} />}
                 >
-                  <h4><a href> {title} </a></h4>
-                  <span class="ant-card-meta-description">{release_date} </span>
+                  <h4><a href={`/movies/${id}`}> {title} </a></h4>
+                  <span className="ant-card-meta-description">{release_date} </span>
                 </Card>
               </Link>
             </Col>

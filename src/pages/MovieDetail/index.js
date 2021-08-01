@@ -25,8 +25,7 @@ const MovieList = ({
     fetchListMovie();
     // eslint-disable-next-line
   }, []);
-  const { poster_path, release_date, title, backdrop_path, genres = [], overview, tagline, vote_average } = movieDetail;
-  const movieTypes = genres.map(item => item.name).join(', ');
+  const { poster_path, release_date, title, backdrop_path, genres, overview, tagline, vote_average } = movieDetail;
 
   return (
     <Page helmet="Latest & Popular Movie" siderRight={false} siderLeft={false}>
@@ -38,19 +37,19 @@ const MovieList = ({
         backgroundRepeat: 'no-repeat',
         color: '#fff',
         marginBottom: 10,
-        backgroundImage: `url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/${poster_path}")`
+        backgroundImage: `url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/${poster_path || backdrop_path}")`
       }}>
         <Row gutter={[16, 16]} style={{ backgroundImage: 'linear-gradient(to right, rgba(12.94%, 15.29%, 24.31%, 1.00) 150px, rgba(12.94%, 15.29%, 24.31%, 0.84) 100%)' }}>
           <Col className="gutter-row" xxl={4} xl={4} lg={2} md={1} xs={0}> </Col>
           <Col className="gutter-row" xxl={5} xl={6} lg={8} md={10} xs={11}>
             <div style={{padding: '30px'}}>
-              <img alt="example" src={`${imagePrefix}/${backdrop_path}`} style={{ borderRadius: 10 }} />
+              <img alt="example" src={`${imagePrefix}/${backdrop_path || poster_path}`} style={{ borderRadius: 10 }} />
             </div>
           </Col>
           <Col className="gutter-row" xxl={12} xl={12} lg={12} md={12} xs={12}>
             <div style={{padding: '30px', color: 'white' }}>
-              <h2 style={{fontSize: '2.2rem', fontWeight: '600', margin: 0, color: 'white' }}> {title} ({new Date(release_date).getFullYear()})</h2>
-              <p> {movieTypes}</p>
+              <h2 style={{fontSize: '2.2rem', fontWeight: '600', margin: 0, color: 'white' }}> {title} ({release_date ? new Date(release_date).getFullYear(): 'Not Available'})</h2>
+              <p> {genres}</p>
               <Progress type="circle" percent={vote_average*10} width={50} strokeColor="green" style={{color: 'white'}}/> User Scores
               <h3 style={{ marginTop: 10, color: 'white', fontSize: '1.1rem', fontWeight: 400, opacity: 0.7, fontStyle: 'italic' }}> {tagline}</h3>
               <h3 style={{ marginTop: 10, color: 'white', fontSize: '1.3rem' }}> Overview </h3>
