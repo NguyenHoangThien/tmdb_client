@@ -1,5 +1,5 @@
 {
-  "name": "tb-enterprise-react",
+  "name": "tmdb-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +16,6 @@
     "react-dom": "16.13.1",
     "react-helmet": "5.2.1",
     "react-redux": "6.0.1",
-    "react-redux-loading-bar": "^4.4.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
     "redux": "4.0.5",
@@ -47,7 +46,8 @@
     "webpack": "^4.44.1"
   },
   "scripts": {
-    "local": "NODE_ENV=local react-app-rewired start"
+    "local": "NODE_ENV=local react-app-rewired start",
+    "start": "NODE_ENV=local react-app-rewired start"
   },
   "lint-staged": {
     "linters": {

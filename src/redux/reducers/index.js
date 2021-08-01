@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import { loadingBarReducer } from 'react-redux-loading-bar';
 
 export default history => {
   const appReducer = combineReducers({
-    router: connectRouter(history),
-    loadingBar: loadingBarReducer
+    router: connectRouter(history)
   });
 
   // reset the state of a redux store
